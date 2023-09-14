@@ -42,7 +42,7 @@
     <div class="popup">
         <div class="popup-content">
             <h2>Nouvel article | Agenda</h2>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="#" method="POST" enctype="multipart/form-data">
               <label for="articleImage">Image de l'article</label>
               <input type="file" id="articleImage" name="articleImage" onchange="previewImage(this)">
       
@@ -60,7 +60,7 @@
               <label for="text">Texte:</label>
               <textarea id="text" name="text" rows="4" required></textarea>
           
-              <button type="submit">Ajouter</button>
+              <button type="submit" name ="">Ajouter</button>
               <button class="close-popup">Fermer</button>
           </form>
         </div>

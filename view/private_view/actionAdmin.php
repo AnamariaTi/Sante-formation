@@ -42,7 +42,7 @@
     <div class="popup">
       <div class="popup-content">
           <h2>Nouvel article | Action</h2>
-          <form action="#" method="post" enctype="multipart/form-data">
+          <form action="#" method="POST" enctype="multipart/form-data">
             <label for="articleImage">Image de l'article</label>
             <input type="file" id="articleImage" name="articleImage" onchange="previewImage(this)">
     
@@ -55,10 +55,10 @@
             <input type="text" id="title" name="title" required>
         
             <label for="description">Description:</label>
-            <input type="text" id="description" name="description" required>
+            <input type="text" id="description" name="description" >
         
             <label for="text">Texte:</label>
-            <textarea id="text" name="text" rows="4" required></textarea>
+            <textarea id="text" name="text" rows="4" ></textarea>
         
             <button type="submit">Ajouter</button>
             <button class="close-popup">Fermer</button>
@@ -66,6 +66,7 @@
       </div>
   </div>
     <table class="table">
+
       <thead>
         <tr>
           <th>Image</th>
@@ -76,11 +77,18 @@
         </tr>
       </thead>
       <tbody>
+      <?php
+       foreach ($actionAll  as $item ){
+      ?>
         <tr>
-          <td id="imgTable"><img src="img/logoSanteFormation.png" height="auto" width="200px" alt="Image 1"></td>
-          <td id="titreTable">Titre 1</td>
-          <td>Description 1</td>
-          <td>Texte 1</td>
+
+        <!--  <td id="imgTable"><img src="img/logoSanteFormation.png" height="auto" width="200px" alt="Image 1"></td>-->
+            <td id="imgTable" ><?=$item->getActionImg() ?> </td>
+
+          <td id="titreTable" ><?=$item->getActionImageText()?></td>
+       <!--   <td>Description 1</td>
+          <td>Texte 1</td>-->
+            <?php  }  ?>
           <td id="buttonTable">
             <a href="?p=modifAction" class="btn-modifier">Modifier</a>
             <button class="btn-supprimer">Supprimer</button>
@@ -88,9 +96,9 @@
         </tr>
         <tr>
           <td id="imgTable"><img src="img/logoSanteFormation.png" height="auto" width="200px" alt="Image 2"></td>
-          <td>Titre 1</td>
-          <td>Description 1</td>
-          <td>Texte 1</td>
+         <td>Titre 1</td>
+            <!--  <td>Description 1</td>
+             <td>Texte 1</td>-->
           <td id="buttonTable">
             <a href="?p=modifAction" class="btn-modifier">Modifier</a>
             <button class="btn-supprimer">Supprimer</button>

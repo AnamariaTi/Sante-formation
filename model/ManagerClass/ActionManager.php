@@ -86,11 +86,11 @@ class ActionManager implements ManagerInterface,ActionInterface {
      */
   public function  updateAction(ActionMapping $datas):bool
   {
-      $prepare = $this->connect->prepare("UPDATE action SET actionTitle=?,actioniDescription=?,actionText=?,actionImages=?,actionDate=? WHERE idAction = :idAction");
+      $prepare = $this->connect->prepare("UPDATE action SET actionTitle=?,actioniDescription=?,actionText=?,actionImg=?,actionDate=? WHERE idAction = :idAction");
       $prepare->bindValue(1, htmlspecialchars(strip_tags(trim($datas->getActionTitre()), ENT_QUOTES)), PDO::PARAM_STR);
       $prepare->bindValue(2, htmlspecialchars(strip_tags(trim($datas->getActionDescription()), ENT_QUOTES)), PDO::PARAM_STR);
       $prepare->bindValue(3, htmlspecialchars(strip_tags(trim($datas->getActionText()), ENT_QUOTES)), PDO::PARAM_STR);
-      $prepare->bindValue(4, htmlspecialchars(strip_tags(trim($datas->getActionImage()), ENT_QUOTES)), PDO::PARAM_STR);
+      $prepare->bindValue(4, htmlspecialchars(strip_tags(trim($datas->getActionImg()), ENT_QUOTES)), PDO::PARAM_STR);
       $prepare->bindValue(5, htmlspecialchars(strip_tags(trim($datas->getActionDate()), ENT_QUOTES)), PDO::PARAM_STR);
 
       try {

@@ -7,18 +7,10 @@ use \model\ManagerClass\AgendaManager;
 
 $adminConect = new AdminManager($connection);
 
+$action = new ActionManager($connection);
+$actionAll = $action->getAll();
+$actionInsert = $action->insertAction($connection);
 
-
-
-
-
-/*
-var_dump($_SESSION);
-
-
-//var_dump($adminConect);
-
-require "../view/private_view/HOMEAdmin.php";*/
 
 if (isset($_GET['p'])) {
 
@@ -84,4 +76,17 @@ if (isset($_GET['p'])) {
         exit();
 }else{
     include_once "../view/private_view/homeAdmin.php";
+}
+
+
+        if(isset($_POST['addAction'])) {
+          if (!empty($_POST['articleImage']) && !empty($_POST['title'])) {
+            try {
+              $lastInsert = $actionInsert;
+           } catch (Exception $e) {
+             $e = throw new Exception("Un problème est survenu lors de l'ajout 
+                 de l'action veuillez réesayer ");
+          }
+    }
+
 }
